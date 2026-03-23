@@ -1,26 +1,79 @@
 @import "tailwindcss";
 
+@theme {
+  --color-copper: #C07830;
+  --color-copper-light: #D4924A;
+  --color-navy: #1B2A4A;
+  --color-navy-dark: #111C33;
+  --color-cream: #FAF7F2;
+  --color-charcoal: #2D2D2D;
+  --font-heading: var(--font-playfair);
+  --font-body: var(--font-inter);
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #FAF7F2;
+  --foreground: #2D2D2D;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-playfair), Georgia, serif;
+}
+
+/* Copper CTA buttons — use in Server Components (no JS hover needed) */
+.btn-copper {
+  display: inline-block;
+  background-color: #C07830;
+  color: #FAF7F2 !important;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+.btn-copper:hover {
+  background-color: #D4924A;
+}
+
+.btn-copper-outline {
+  display: inline-block;
+  border: 1px solid rgba(192, 120, 48, 0.55);
+  color: #FAF7F2 !important;
+  border-radius: 6px;
+  font-weight: 600;
+  background-color: transparent;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+.btn-copper-outline:hover {
+  border-color: #C07830;
+  background-color: rgba(192, 120, 48, 0.1);
+}
+
+/* Hero geometric background pattern */
+.hero-pattern {
+  background-color: #1B2A4A;
+  background-image:
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 40px,
+      rgba(192, 120, 48, 0.06) 40px,
+      rgba(192, 120, 48, 0.06) 41px
+    ),
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 40px,
+      rgba(192, 120, 48, 0.04) 40px,
+      rgba(192, 120, 48, 0.04) 41px
+    );
 }
