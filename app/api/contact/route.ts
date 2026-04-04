@@ -1,9 +1,18 @@
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+function getResendClient() {
+    const key = process.env.RESEND_API_KEY;
+
+    if (!key) {
+        throw new Error("Missing RESEND_API_KEY");
+    }
+
+    return new Resend(key);
+}
 
 export async function POST(req: Request) {
     try {
+        const resend = getResendClient();
         const data = await req.json();
 
         const name = data.name || "";
@@ -14,7 +23,7 @@ export async function POST(req: Request) {
 
         await resend.emails.send({
             from: "Humble House <riccardo@humblehouseusa.com>",
-            to: [process.env.CONTACT_TO_EMAIL || "humblehousellc@outlook.com"],
+            to: [process.env.CONTACT_TO_EMAIL || "riccardo@humblehouseusa.com"],
             subject: "New Humble House Contact Form Submission",
             replyTo: email,
             html: `
