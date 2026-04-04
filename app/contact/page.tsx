@@ -35,8 +35,8 @@ const contactDetails = [
       </svg>
     ),
     label: "Email",
-    value: "riccardo.hicks@outlook.com",
-    href: "mailto:riccardo.hicks@outlook.com",
+    value: "riccardo@humblehouseusa.com",
+    href: "mailto:riccardo@humblehouseusa.com",
   },
   {
     icon: (
