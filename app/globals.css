@@ -82,9 +82,9 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px soli
   .mobile-links summary span { margin-left:6px; }
   .mobile-links > div { position:absolute; top:100%; left:0; right:0; background:#fffdf9; border-bottom:1px solid #d9d6cf; padding:8px 5% 18px; }
   .mobile-links a { display:block; padding:11px 0; }
-  .flight-image { background-position:71% center; }
-  .flight-hero::before { background:linear-gradient(90deg,#091823e6,#09182373); }
-  .flight-copy { padding-block:80px; }
+  .flight-image { bottom: auto; height: 275px; background-position: right center; }
+  .flight-hero::before { background:linear-gradient(to bottom, transparent 100px, #101e2a 274px); }
+  .flight-copy { padding-block: 178px 56px; }
   .hero-actions { gap:14px 22px; }
   .credentials { display:grid; grid-template-columns:auto 1fr; gap:18px 20px; }
   .credentials > div:not(.decal-pair,.cert-title) { border:0; padding:0; }
