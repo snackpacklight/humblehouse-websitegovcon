@@ -135,8 +135,8 @@ export default function ContactPage() {
                   {[
                     ["CAGE", "10CJ5"],
                     ["UEI", "SQAFH9D15NR1"],
-                    ["SDVOSB", "Pending"],
-                    ["8(a)", "Pending"],
+                    ["SDVOSB", "SBA certified"],
+                    ["VOSB", "SBA certified"],
                     ["DAWIA", "PM Level II"],
                   ].map(([k, v]) => (
                     <div key={k} className="flex gap-3">

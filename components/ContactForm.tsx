@@ -23,6 +23,8 @@ export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
 
+  const [errorMessage, setErrorMessage] = useState("");
+
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   }
@@ -30,6 +32,7 @@ export default function ContactForm() {
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     setSubmitting(true);
+    setErrorMessage("");
 
     try {
       const res = await fetch("/api/contact", {
@@ -40,15 +43,14 @@ export default function ContactForm() {
         body: JSON.stringify(form),
       });
 
-      if (!res.ok) {
+      if (!res.ok || (await res.json()).success !== true) {
         throw new Error("Failed to send");
       }
 
       setSubmitted(true);
       setForm(initialState);
-    } catch (error) {
-      console.error(error);
-      alert("Something went wrong. Please try again.");
+    } catch {
+      setErrorMessage("Your message could not be sent. Please try again or email riccardo@humblehouseusa.com.");
     } finally {
       setSubmitting(false);
     }
@@ -66,7 +68,7 @@ export default function ContactForm() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
           </svg>
         </div>
-        <h3 className="font-heading text-2xl font-bold mb-2" style={{ color: "#1B2A4A" }}>
+        <h3 role="status" className="font-heading text-2xl font-bold mb-2" style={{ color: "#1B2A4A" }}>
           Message received.
         </h3>
         <p className="text-sm" style={{ color: "#5a5a5a" }}>
@@ -93,6 +95,7 @@ export default function ContactForm() {
           <input
             id="name"
             name="name"
+            maxLength={120}
             type="text"
             required
             value={form.name}
@@ -111,6 +114,7 @@ export default function ContactForm() {
           <input
             id="organization"
             name="organization"
+            maxLength={180}
             type="text"
             required
             value={form.organization}
@@ -132,6 +136,7 @@ export default function ContactForm() {
           <input
             id="email"
             name="email"
+            maxLength={254}
             type="email"
             required
             value={form.email}
@@ -150,6 +155,7 @@ export default function ContactForm() {
           <input
             id="phone"
             name="phone"
+            maxLength={50}
             type="tel"
             value={form.phone}
             onChange={handleChange}
@@ -169,6 +175,7 @@ export default function ContactForm() {
         <textarea
           id="message"
           name="message"
+            maxLength={5000}
           required
           rows={6}
           value={form.message}
@@ -180,6 +187,8 @@ export default function ContactForm() {
           onBlur={(e) => (e.currentTarget.style.borderColor = "rgba(27,42,74,0.25)")}
         />
       </div>
+
+      {errorMessage && <p role="alert" className="text-sm text-red-800">{errorMessage}</p>}
 
       <button
         type="submit"

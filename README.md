@@ -1,76 +1,26 @@
-# Humble House, LLC — Website
+# Humble House, LLC website
 
-Professional government contracting website for Humble House, LLC — a Service-Disabled Veteran-Owned Small Business (SDVOSB, pending) based in Tampa, FL.
+Next.js App Router and TypeScript website for Humble House, LLC. The public domain is https://humblehouseusa.com. Netlify serves the site.
 
-## Tech Stack
+## Development and verification
 
-- **Framework:** Next.js 16.2.1 (App Router)
-- **Styling:** Tailwind CSS v4
-- **Animations:** Framer Motion v12
-- **Fonts:** Playfair Display (headings) + Inter (body) via `next/font/google`
-- **Language:** TypeScript
+Use a supported Node.js 22 or 24 LTS runtime. Run these commands from the directory containing package.json.
 
-## Getting Started
-
-```bash
-cd humblehouse
-npm install
+```sh
+npm ci
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Open http://localhost:3000. Before releasing, run npm run lint, npm audit and npm run build. Use npm start to test the production build locally.
 
-## Project Structure
+## Pages and business information
 
-```
-humblehouse/
-├── app/
-│   ├── layout.tsx          # Root layout — fonts, Navbar, Footer
-│   ├── globals.css         # Tailwind v4 theme + custom CSS
-│   ├── page.tsx            # Home (/)
-│   ├── about/page.tsx      # About (/about)
-│   ├── services/page.tsx   # Services (/services)
-│   ├── experience/page.tsx # Past Performance (/experience)
-│   └── contact/page.tsx    # Contact (/contact)
-└── components/
-    ├── Navbar.tsx           # Sticky nav with mobile hamburger (client)
-    ├── Footer.tsx           # Footer with entity info
-    ├── FadeUp.tsx           # Framer Motion scroll animation wrapper (client)
-    └── ContactForm.tsx      # Contact form with state (client)
-```
+The five main pages are Home, About, Services, Experience and Contact. The footer links to an accessible HTML overview at /capability-statement. The sitemap and robots file are served at /sitemap.xml and /robots.txt.
 
-## Brand Colors
+Replace public/HumbleHouse_CapabilityStatement.pdf to update the download while preserving existing links. Keep the HTML overview, metadata, company credentials, services and project examples aligned with the approved statement. Public brand assets are in public/brand.
 
-| Token         | Hex       | Usage                            |
-|---------------|-----------|----------------------------------|
-| `copper`      | `#C07830` | CTAs, accents, borders, hover    |
-| `copper-light`| `#D4924A` | Hover state for copper buttons   |
-| `navy`        | `#1B2A4A` | Primary dark surfaces, headers   |
-| `navy-dark`   | `#111C33` | Deeper navy for mobile menu      |
-| `cream`       | `#FAF7F2` | Main page background             |
-| `charcoal`    | `#2D2D2D` | Body text                        |
+## Contact delivery
 
-## Key Notes
+The form posts to /api/contact. Required fields are name, organization, email and message. The server validates the fields and sends plain text through Resend. The visitor receives confirmation only after Resend returns a message ID. On failure, the form retains the inquiry.
 
-- All pages are **static Server Components** — no `'use client'` on page files.
-- Interactive elements (Navbar, ContactForm, FadeUp animations) are isolated client components.
-- Hover effects use `.btn-copper` and `.btn-copper-outline` CSS classes (defined in `globals.css`) — no JS event handlers needed on server pages.
-- The contact form currently simulates a submission (800ms delay). Wire up to an API route or third-party service (Formspree, Resend, etc.) as needed.
-- Add your capability statement PDF at `public/HumbleHouse_CapabilityStatement.pdf` to activate the download button on the home page.
-
-## Build
-
-```bash
-npm run build   # Production build
-npm run start   # Start production server
-npm run lint    # ESLint
-```
-
-## Entity Information
-
-| Field  | Value          |
-|--------|----------------|
-| CAGE   | 10CJ5          |
-| UEI    | SQAFH9D15NR1   |
-| SDVOSB | Pending        |
-| 8(a)   | Pending        |
+Configure RESEND_API_KEY in .env.local for local use and in the Netlify environment for production. CONTACT_TO_EMAIL optionally overrides the destination. The default recipient and verified sender address are riccardo@humblehouseusa.com. Keep credentials outside Git and public assets. Confirm final mailbox delivery in Resend or the receiving inbox after a release test.

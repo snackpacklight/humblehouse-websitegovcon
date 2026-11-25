@@ -5,7 +5,7 @@ import FadeUp from "@/components/FadeUp";
 export const metadata: Metadata = {
   title: "Services | Humble House, LLC",
   description:
-    "CSS & SETA professional services — embedded acquisition, program management, systems engineering, and technical advisory support for DoW program offices and prime contractors.",
+    "CSS & SETA professional services — embedded acquisition, program management, systems engineering, and technical advisory support for DoD program offices and prime contractors.",
 };
 
 const services = [
@@ -42,7 +42,8 @@ const competencies = [
   "ISR & UAS (Group 1–3)", "SOW/PWS Authoring", "DoD 5000 Compliance",
   "SOFCIDS", "Budget Execution", "IPT Leadership", "Source Selection Support",
   "Congressional Reporting", "Rapid Fielding", "TS/SCI Environments",
-  "Commercial ISR Integration", "ACAT I Programs",
+  "Dashboards & Decision Support", "AI-Assisted Document Workflows",
+  "Agent Architecture & Governance", "Commercial ISR Integration", "ACAT I Programs",
 ];
 
 const naics = [

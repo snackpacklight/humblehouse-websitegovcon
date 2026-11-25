@@ -3,9 +3,9 @@ import Link from "next/link";
 import FadeUp from "@/components/FadeUp";
 
 export const metadata: Metadata = {
-  title: "Past Performance | Humble House, LLC",
+  title: "Relevant Experience | Humble House, LLC",
   description:
-    "Past performance across USSOCOM, NAVAIR, and NSW — $500M+ in program management experience spanning ACAT I aviation to ISR rapid fielding.",
+    "Program management and acquisition experience across USSOCOM, NAVAIR, and Naval Special Warfare, with the role and program scope for each example.",
 };
 
 const engagements = [
@@ -40,7 +40,7 @@ const engagements = [
   {
     org: "USSOCOM PEO-TIS",
     title: "Commercial ISR Integration",
-    role: "Program Architect",
+    role: "Firm Principal · Program Architect",
     budget: "Classified",
     tags: ["Commercial ISR", "Satellite", "Innovation"],
     description:
@@ -68,7 +68,7 @@ const engagements = [
   {
     org: "Naval Special Warfare",
     title: "Quick Reaction Capability — Near-Peer Threat Countering",
-    role: "Acquisition Strategist",
+    role: "Humble House · Acquisition Strategy",
     budget: "$113M",
     tags: ["QRC", "Near-Peer", "NSW"],
     description:
@@ -106,10 +106,10 @@ export default function ExperiencePage() {
             Track Record
           </p>
           <h1 className="font-heading text-5xl lg:text-6xl font-bold mb-4" style={{ color: "#FAF7F2" }}>
-            Past Performance
+            Relevant Experience
           </h1>
           <p className="text-lg max-w-2xl" style={{ color: "rgba(250,247,242,0.65)" }}>
-            A proven record across USSOCOM, NAVAIR, and Naval Special Warfare — managing hundreds of millions in program budgets with measurable results.
+            Selected work from the firm and its personnel. Each example identifies the role and the government program it supported. Dollar figures describe the associated program, budget, or acquisition strategy.
           </p>
         </div>
       </section>
@@ -136,7 +136,7 @@ export default function ExperiencePage() {
                     </div>
                     <div className="text-right">
                       <p className="text-xs tracking-wide mb-0.5" style={{ color: "rgba(250,247,242,0.5)" }}>
-                        Budget Authority
+                        Program scope
                       </p>
                       <p className="font-heading text-2xl font-bold" style={{ color: "#C07830" }}>
                         {eng.budget}
@@ -194,7 +194,7 @@ export default function ExperiencePage() {
               className="text-xs font-semibold tracking-widest uppercase mb-8 text-center"
               style={{ color: "#C07830" }}
             >
-              Industry Partners &amp; Organizations Supported
+              Industry Relationships
             </p>
             <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-5">
               {partners.map((p) => (
@@ -219,7 +219,7 @@ export default function ExperiencePage() {
               Interested in a full capability brief?
             </h2>
             <p className="mb-8 max-w-lg mx-auto" style={{ color: "rgba(250,247,242,0.65)" }}>
-              We&apos;ll walk you through our relevant past performance and discuss how we can support your specific program.
+              We&apos;ll walk you through our relevant experience and discuss how we can support your specific program.
             </p>
             <Link href="/contact" className="btn-copper px-8 py-4 text-sm">
               Request a Briefing

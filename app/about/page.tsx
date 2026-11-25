@@ -5,7 +5,7 @@ import FadeUp from "@/components/FadeUp";
 export const metadata: Metadata = {
   title: "About | Humble House, LLC",
   description:
-    "Humble House, LLC delivers senior-level DoD acquisition expertise to government agencies and prime contractors — without the overhead of a large firm. SDVOSB (pending).",
+    "Humble House, LLC delivers senior-level DoD acquisition expertise to government agencies and prime contractors — without the overhead of a large firm. SBA-certified SDVOSB and VOSB.",
 };
 
 const pillars = [
@@ -39,7 +39,7 @@ const pillars = [
 ];
 
 const stats = [
-  { num: "$600M+", label: "Cumulative Budget Authority Across DoD Programs" },
+  { num: "21", label: "TACAMO Aircraft Modifications Supported" },
   { num: "20+", label: "Years of Combined DoD Acquisition Experience" },
   { num: "5+", label: "Major Commands & Program Offices Supported" },
 ];
@@ -90,7 +90,7 @@ export default function AboutPage() {
                   Humble House was built on a conviction that has driven every program we&apos;ve touched. We don&apos;t send coordinators. We don&apos;t staff off benches. We assign senior practitioners — professionals who have held acquisition authority, led integrated product teams, and delivered under pressure — because that is the standard mission-critical programs require.
                 </p>
                 <p>
-                  Our team brings decades of combined experience in DoD acquisition, program management, and technical advisory support across some of the most complex and consequential programs in the defense enterprise. Our portfolio spans ACAT I aviation programs at NAVAIR, rapid-fielding ISR initiatives at USSOCOM PEO-TIS, and Quick Reaction Capability development for Naval Special Warfare — with cumulative budget authority exceeding $600M. We have operated at the intersection of acquisition compliance, operational urgency, and Congressional scrutiny, and we know how to deliver in all three environments simultaneously.
+                  Our team brings decades of combined experience in DoD acquisition, program management, and technical advisory support across some of the most complex and consequential programs in the defense enterprise. Our personnel bring experience spanning ACAT I aviation programs at NAVAIR, rapid-fielding ISR initiatives at USSOCOM PEO-TIS, and Quick Reaction Capability development for Naval Special Warfare. We have operated at the intersection of acquisition compliance, operational urgency, and Congressional scrutiny, and we know how to deliver in all three environments simultaneously.
                 </p>
               </div>
             </FadeUp>
@@ -108,7 +108,7 @@ export default function AboutPage() {
             <FadeUp delay={0.2}>
               <div className="space-y-5 text-base leading-relaxed" style={{ color: "#444" }}>
                 <p>
-                  We are a Service-Disabled Veteran-Owned Small Business (SDVOSB, pending), headquartered in Tampa, Florida — home to USSOCOM, USCENTCOM, and one of the most concentrated defense communities in the country. Our team operates nationally and globally, and we are actively pursuing 8(a) certification to expand teaming and prime contracting opportunities alongside our government partners.
+                  Humble House is based in Tampa, Florida, and supports customers nationwide. The SBA certified Humble House as both a Service-Disabled Veteran-Owned Small Business (SDVOSB) and a Veteran-Owned Small Business (VOSB), effective September 14, 2026.
                 </p>
               </div>
             </FadeUp>

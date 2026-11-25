@@ -1,79 +1,95 @@
 @import "tailwindcss";
 
 @theme {
-  --color-copper: #C07830;
-  --color-copper-light: #D4924A;
-  --color-navy: #1B2A4A;
-  --color-navy-dark: #111C33;
-  --color-cream: #FAF7F2;
-  --color-charcoal: #2D2D2D;
-  --font-heading: var(--font-playfair);
-  --font-body: var(--font-inter);
+  --color-copper: #be774b;
+  --color-navy: #1b2a4a;
+  --color-cream: #faf7f2;
+  --color-charcoal: #273544;
+  --font-heading: Georgia, "Times New Roman", serif;
+  --font-body: "Segoe UI", Arial, sans-serif;
 }
-
-:root {
-  --background: #FAF7F2;
-  --foreground: #2D2D2D;
+:root { --ink: #182938; --warm: #edaf80; --rust: #8e4f2e; }
+body { margin: 0; font-family: var(--font-body); color: var(--ink); background: #faf7f2; }
+h1,h2,h3,h4 { font-family: var(--font-heading); }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid #3b95d0; outline-offset: 4px; }
+.site-width { width: min(1248px, calc(100% - clamp(40px, 9vw, 160px))); margin-inline: auto; }
+.skip-link { position: fixed; top: 6px; left: 6px; padding: 10px 18px; background: white; z-index: 90; transform: translateY(-150%); }
+.skip-link:focus { transform: none; }
+.masthead { position: sticky; top: 0; z-index: 50; background: #fffdf9; border-bottom: 1px solid #dfd8cd; }
+.nav-row,.desktop-links,.hero-actions,.credentials,.experience-inner { display: flex; align-items: center; }
+.nav-row { height: 80px; justify-content: space-between; }
+.wordmark { width: 188px; height: auto; }
+.desktop-links { gap: clamp(20px,2.6vw,46px); font-size: .9rem; font-weight: 600; }
+.desktop-links a[aria-current="page"]:not(:last-child),.mobile-links a[aria-current="page"] { text-decoration: underline; text-decoration-color: var(--rust); text-underline-offset: 6px; }
+.desktop-links a:hover,.ink-link:hover { color: var(--rust); }
+.desktop-links a:last-child { padding: 10px 19px; border: 1px solid #a5a8a4; }
+.desktop-links a span,.hero-actions a span,.ink-link span { margin-left: .55em; }
+.mobile-links { display: none; }
+.flight-hero { position: relative; isolation: isolate; overflow: hidden; background: #101e2a; color: #fffdf8; }
+.flight-image { position:absolute; inset:0; z-index:-2; background: url("/aviation-dawn.webp") center / cover no-repeat; }
+.flight-hero::before { content:""; position:absolute; inset:0; z-index:-1; background: linear-gradient(90deg, #091823cc, #10243566 48%, transparent 72%); }
+@media (prefers-reduced-motion: no-preference) { .flight-image { animation: aerial-drift 5s ease-out both; } }
+@keyframes aerial-drift { from { transform: scale(1.075) translateX(-.6%); } to { transform: scale(1); } }
+.flight-copy { padding-block: clamp(86px,8vw,158px); }
+.section-label,.credentials span,.site-footer h2 { font: 700 .69rem/1.4 var(--font-body); letter-spacing: .17em; text-transform: uppercase; }
+.section-label { color: var(--rust); margin-bottom: 22px; }
+.hero-label { display:flex; align-items:center; gap:12px; color: #f0bd99; }
+.hero-label::before { content:""; width:40px; height:1px; background:currentColor; }
+.flight-copy h1 { font-size: clamp(3.25rem,6.7vw,7rem); font-weight:400; letter-spacing:-.055em; line-height:1.02; }
+.flight-copy h1 em { color: #efba95; }
+.flight-intro { max-width: 545px; margin-top:24px; font-size:clamp(1.05rem,1.4vw,1.25rem); line-height:1.6; color:#f0f2f2; }
+.hero-actions { flex-wrap:wrap; gap:24px; margin-top:32px; }
+.btn-copper,.btn-copper-outline,.document-link,.ink-link { display:inline-block; font-weight:650; }
+.btn-copper { background:#ebac7c; color:#192936; border-radius:2px; }
+.btn-copper:hover { background:#f4bf98; }
+.btn-copper-outline { border:1px solid #b58b6a; color:#fff; border-radius:2px; }
+.hero-actions a { font-size:.92rem; }
+.hero-actions .btn-copper { padding:15px 20px; }
+.document-link,.ink-link { border-bottom:1px solid currentColor; padding-block:6px; }
+.document-link:hover { color:var(--warm); }
+.identity-strip { background:#fffdf9; border-bottom:1px solid #d9d6cf; }
+.credentials { gap:clamp(20px,4vw,74px); padding-block:22px; }
+.credentials > div:not(.decal-pair,.cert-title) { border-left:1px solid #d9d6cf; padding-left:clamp(20px,4vw,72px); }
+.credentials span { display:block; color:#655d54; font-size:.63rem; margin-bottom:4px; }
+.credentials strong { font-size:clamp(.9rem,1.3vw,1.2rem); font-weight:650; }
+.decal-pair { display:flex; gap:8px; }
+.decal-pair img { width:48px; height:auto; }
+.practice { display:grid; grid-template-columns:1fr 1.15fr; gap:8%; padding-block:clamp(62px,7vw,110px); }
+.practice h2,.experience-inner h2 { font-size:clamp(2.55rem,4vw,4.6rem); line-height:1.05; letter-spacing:-.045em; font-weight:400; }
+.practice .ink-link { margin-top:28px; }
+.practice-list article { padding-block:20px; border-top:1px solid #c9c4b9; }
+.practice-list h3 { font-size:clamp(1.35rem,1.8vw,1.75rem); line-height:1.2; }
+.practice-list p,.experience-inner p:not(.section-label) { margin-top:9px; line-height:1.65; color:#495560; }
+.experience-band { background:#eae6de; }
+.experience-inner { padding-block:64px; justify-content:space-between; gap:32px; }
+.experience-inner > div { max-width:690px; }
+.experience-inner .ink-link { flex-shrink:0; }
+.site-footer { background:#132331; color:#e3e7e7; }
+.footer-grid { display:grid; grid-template-columns:1.25fr .7fr 1fr; gap:8%; padding-block:54px; }
+.site-footer p { max-width:320px; font-size:.89rem; line-height:1.8; margin-top:18px; color:#cbd2d5; }
+.site-footer h2 { color:#e9ad84; margin-bottom:14px; }
+.site-footer nav a { display:block; width:fit-content; margin-bottom:5px; font-size:.9rem; }
+.site-footer nav a:hover { text-decoration:underline; }
+.copyright { border-top:1px solid #41505b; padding-block:20px; font-size:.76rem; color:#cbd2d5; }
+.hero-pattern { background-color:#192b3c; background-image:linear-gradient(125deg,#132330,#263f56); }
+@media(max-width:740px) {
+  .nav-row { height:66px; }
+  .wordmark { width:153px; }
+  .desktop-links { display:none; }
+  .mobile-links { display:block; }
+  .mobile-links summary { cursor:pointer; list-style:none; font-size:.9rem; padding:10px; }
+  .mobile-links summary::-webkit-details-marker { display:none; }
+  .mobile-links summary span { margin-left:6px; }
+  .mobile-links > div { position:absolute; top:100%; left:0; right:0; background:#fffdf9; border-bottom:1px solid #d9d6cf; padding:8px 5% 18px; }
+  .mobile-links a { display:block; padding:11px 0; }
+  .flight-image { background-position:71% center; }
+  .flight-hero::before { background:linear-gradient(90deg,#091823e6,#09182373); }
+  .flight-copy { padding-block:80px; }
+  .hero-actions { gap:14px 22px; }
+  .credentials { display:grid; grid-template-columns:auto 1fr; gap:18px 20px; }
+  .credentials > div:not(.decal-pair,.cert-title) { border:0; padding:0; }
+  .practice,.footer-grid { grid-template-columns:1fr; gap:32px; }
+  .experience-inner { display:block; }
+  .experience-inner .ink-link { margin-top:20px; }
 }
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-inter), system-ui, sans-serif;
-  -webkit-font-smoothing: antialiased;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-playfair), Georgia, serif;
-}
-
-/* Copper CTA buttons — use in Server Components (no JS hover needed) */
-.btn-copper {
-  display: inline-block;
-  background-color: #C07830;
-  color: #FAF7F2 !important;
-  border-radius: 6px;
-  font-weight: 600;
-  transition: background-color 0.2s;
-}
-.btn-copper:hover {
-  background-color: #D4924A;
-}
-
-.btn-copper-outline {
-  display: inline-block;
-  border: 1px solid rgba(192, 120, 48, 0.55);
-  color: #FAF7F2 !important;
-  border-radius: 6px;
-  font-weight: 600;
-  background-color: transparent;
-  transition: border-color 0.2s, background-color 0.2s;
-}
-.btn-copper-outline:hover {
-  border-color: #C07830;
-  background-color: rgba(192, 120, 48, 0.1);
-}
-
-/* Hero geometric background pattern */
-.hero-pattern {
-  background-color: #1B2A4A;
-  background-image:
-    repeating-linear-gradient(
-      -45deg,
-      transparent,
-      transparent 40px,
-      rgba(192, 120, 48, 0.06) 40px,
-      rgba(192, 120, 48, 0.06) 41px
-    ),
-    repeating-linear-gradient(
-      45deg,
-      transparent,
-      transparent 40px,
-      rgba(192, 120, 48, 0.04) 40px,
-      rgba(192, 120, 48, 0.04) 41px
-    );
-}
+@media(max-width:370px) { .flight-copy h1 { font-size:2.78rem; } }
