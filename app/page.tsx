@@ -10,7 +10,7 @@ const capabilities = [
 export default function HomePage() {
   return <>
     <section className="flight-hero">
-      <div className="flight-image" aria-hidden="true" />
+      <div className="flight-image" aria-hidden="true" style={{ backgroundImage: "url(/aviation-dawn.webp?v=uav)" }} />
       <div className="site-width flight-copy">
         <p className="section-label hero-label">Defense acquisition &amp; advisory</p>
         <h1>Acquisition-proven.<br/><em>Mission-first.</em></h1>
